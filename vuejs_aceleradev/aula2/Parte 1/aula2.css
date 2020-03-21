@@ -1,0 +1,19 @@
+.container{
+    display: flex;;
+    justify-content: center;
+}
+
+.navbar{
+    height: 50px;
+}
+
+footer{
+    height: 100px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.cor-fundo{
+    background-color: #01AFFA;
+}

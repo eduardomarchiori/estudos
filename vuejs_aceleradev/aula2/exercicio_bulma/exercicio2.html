@@ -1,0 +1,190 @@
+<!-- 
+Eduardo Marchiori
+21/03/2020 
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Informática</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="app">
+        <nav class="navbar level navbar is-primary" role="navigation" aria-label="main navigation">
+            <div class="level-item has-text-centered">
+                <div>
+                    <i class="fas fa-caret-square-right is-size-3"></i>
+                </div>
+                <div>
+                    <span class="link is-info is-size-3">&nbsp Love Tech &nbsp</span>
+                </div>
+                <div>
+                    <i class="fas fa-caret-square-left is-size-3"></i>
+                </div>
+            </div>
+        </nav>
+        
+    
+        <section class="section">
+
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-8">
+                        <h1 class="has-text-weight-bold is-size-3">Minha loja de eletrônicos</h1>
+                        <p>Tabela de produtos disponivel na loja</p>
+                    </div>      
+                </div>
+    
+                <div class="columns is-centered">
+                    <div class="column is-8">
+                        <table class="table is-fullwidth">
+                            <thead>
+                                <tr>
+                                    <th>Número</th>
+                                    <th>Descrição</th>
+                                    <th>Quantidade em estoque</th>
+                                    <th>Preço por unidade</th>
+                                    <th>Imagem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="produto in produtos">
+                                    <td>{{produto.numero}}</td>
+                                    <td>{{produto.descricao}}</td>
+                                    <td>{{produto.estoque}}</td>
+                                    <td>{{produto.preco}}</td>
+                                    <td><a :href="produto.imagem" target="_blank">Produto</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>   
+                </div>
+            </div>
+        </section>   
+         
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>Eduardo Marchiori</strong>, 2020
+              </p>
+            </div>
+          </footer>
+    </div>
+    
+
+  </body>
+</html>
+
+<script>
+      var app = new Vue({
+        el: '#app',
+        data: function() {
+            return{
+                produtos:[
+                    {
+                        numero:1,
+                        descricao: "Galaxy S10",
+                        estoque: 7,
+                        preco: "2.138,00",
+                        imagem:"https://www.americanas.com.br/produto/134217361?opn=YSMESP&sellerid=02&epar=bp_pl_00_go_tel_smartphone_todas_geral_gmv&WT.srch=1&acc=e789ea56094489dffd798f86ff51c7a9&i=5612cbe46ed24cafb5cae011&o=5c8705186c28a3cb507fb4bc&gclid=Cj0KCQjw9tbzBRDVARIsAMBplx8P5VdC0Avem_OSQN07SX8AuxNcB7_nLtmHBdfVsauLyzhwsSbSy0kaAgrkEALw_wcB"
+                    },
+                    {
+                        numero:2,
+                        descricao: "Iphone 10",
+                        estoque: 10,
+                        preco: "2.999,99",
+                        imagem:"https://www.magazineluiza.com.br/iphone-xr-apple-64gb-preto-4g-tela-61-retina-camera-12mp-selfie-7mp-ios-12-proc-chip-a12/p/155556000/te/ipxr/?&utm_source=google&utm_medium=pla&utm_campaign=&partner_id=4650&1=1&seller_id=magazineluiza&product_group_id=778031435183&ad_group_id=55841535779&gclid=Cj0KCQjw9tbzBRDVARIsAMBplx8-w6sm08Jb4o_5-sfv95XTI_0KYOQ_KITlVcVbNoNI5JBUYXNMSL0aAkmcEALw_wcB"
+                    },
+                    {
+                        numero:3,
+                        descricao: "Moto G7",
+                        estoque: 47,
+                        preco: "1.169,99",
+                        imagem:"https://www.magazineluiza.com.br/smartphone-motorola-moto-g7-64gb-4gb-tela-6-24-full-hd-camera-12-5mp-dual-traseira-polar/p/ad21kc15a7/te/mtg7/"
+                    },
+                    {
+                        numero:4,
+                        descricao: "Xbox One",
+                        estoque: 23,
+                        preco: "1.229,00",
+                        imagem:"https://www.americanas.com.br/produto/443054972?pfm_carac=xbox%20one&pfm_page=search&pfm_pos=grid&pfm_type=search_page"
+                    },
+                    {
+                        numero:5,
+                        descricao: "Nintendo Switch",
+                        estoque: 63,
+                        preco: "2.899,99",
+                        imagem:"https://www.americanas.com.br/produto/191044849?pfm_carac=nintendo%20switch&pfm_page=search&pfm_pos=grid&pfm_type=search_page"
+                    },
+                    {
+                        numero:6,
+                        descricao: "Mouse Razer",
+                        estoque: 14,
+                        preco: "253,99",
+                        imagem:"https://www.americanas.com.br/produto/113078306?pfm_carac=mouse%20razer&pfm_page=search&pfm_pos=grid&pfm_type=search_page"
+                    },
+                    {
+                        numero:7,
+                        descricao: "Nvidia 1050 TI",
+                        estoque: 35,
+                        preco: "1.141,00",
+                        imagem:"https://www.kabum.com.br/produto/84137/placa-de-video-gigabyte-nvidia-geforce-gtx-1050-ti-oc-4g-gddr5-gv-n105toc-4gd"
+                    },
+                    {
+                        numero:8,
+                        descricao: "Teclado Dell",
+                        estoque: 50,
+                        preco: "148,99",
+                        imagem:"https://www.americanas.com.br/produto/129705378?pfm_carac=teclado%20dell&pfm_page=search&pfm_pos=grid&pfm_type=search_page"
+                    },
+                    {
+                        numero:9,
+                        descricao: "JBL Go",
+                        estoque: 25,
+                        preco: "169,99",
+                        imagem:"https://www.americanas.com.br/produto/134348951?pfm_carac=jbl%20go&pfm_page=search&pfm_pos=grid&pfm_type=search_page"
+                    },
+                    {
+                        numero:10,
+                        descricao: "Kindle",
+                        estoque: 100,
+                        preco: "500,00",
+                        imagem:"https://www.amazon.com.br/gp/product/B0773XBMB6/ref=s9_acss_bw_cg_11einkpg_3b1_w?pf_rd_m=A3RN7G7QC5MWSZ&pf_rd_s=merchandised-search-4&pf_rd_r=TJBFTZHTM7MBB2HYBAN4&pf_rd_t=101&pf_rd_p=a2be4147-6aaf-46ac-b7cc-1263d951145f&pf_rd_i=5475881011"
+                    }
+                ]
+            }
+        },
+        methods:{
+            alterarCarro: function(carroEscolhido) {
+                if(carroEscolhido == 1){
+                    this.carro = "Peugeot"
+                }
+
+                if(carroEscolhido == 2){
+                    this.carro = "Mercedes"
+                }
+
+                if(carroEscolhido == 3){
+                    this.carro = "Honda"
+                }
+
+            }
+        }
+    })
+</script>
+
+
+<style>
+    .footer{
+        bottom: 0;
+        padding: 2rem;
+        background-color: #42D2B3;
+    }
+</style>

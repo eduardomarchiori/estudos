@@ -1,0 +1,154 @@
+<!-- 
+Eduardo Marchiori
+21/03/2020 
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Carros</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+    
+    <div id="app">
+        <nav class="navbar level navbar is-primary" role="navigation" aria-label="main navigation">
+            <div class="level-item has-text-centered">
+                <div>
+                    <i class="fas fa-caret-square-right is-size-3"></i>
+                </div>
+                <div>
+                    <span class="link is-info is-size-3">&nbsp Love Cars &nbsp</span>
+                </div>
+                <div>
+                    <i class="fas fa-caret-square-left is-size-3"></i>
+                </div>
+            </div>
+        </nav>
+    
+        <section class="section">
+            <div class="container">
+                
+                <div class="columns is-centered">
+                    <div class="column is-9">
+                        <nav class="breadcrumb" aria-label="breadcrumbs">
+                            <ul>
+                                <li><a href="#">Carros</a></li>
+                                <li class="is-active"><a href="#" aria-current="page">{{carro}}</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+    
+                
+                <div class="columns is-centered">
+                    <div class="column is-9">
+                        <h1 class="has-text-weight-bold is-size-3">Olá, minha fabricantes é a {{carro}}!</h1>
+                        <p>Fabricantes populares em 2015.</p>
+                    </div>
+                </div>
+    
+        
+                <div class="columns is-centered">
+                    <div class="column is-3" @click="alterarCarro(1)">
+                        <div class="card">
+                            <div class="card-image is-clickable">
+                            <figure class="image is-4by3">
+                                <img src="https://fotos.jornaldocarro.estadao.com.br/uploads/2019/10/13154859/Peugeot-2008-2020-1600-02-1160x712.jpg" alt="Placeholder image">
+                            </figure>
+                            </div>
+                            <div class="card-content">                  
+                            <div class="content">
+                               <strong> Peugeot</strong> é uma fabricante de automóveis francesa fundada em 1896, produtora de carros, pertencente ao Grupo PSA Peugeot Citröen. Peugeot ganhou muitos prêmios internacionais, como: 5 vezes Carro do Ano na Europa, 9 vezes Carro do Ano na Espanha, 5 vezes Carro do Ano na Itália e 2 vezes Carro do Ano na Irlanda.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="column is-3" @click="alterarCarro(2)">
+                        <div class="card is-clickable">
+                            <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://img.r7.com/images/2015/11/09/8hv4lwizfe_2mkurpvofp_file" alt="Placeholder image">
+                            </figure>
+                            </div>
+                            <div class="card-content">                  
+                            <div class="content">
+                                A <strong> Mercedes-Benz</strong> é uma marca alemã de automóveis pertencente ao grupo Daimler AG, criada em 1924 e resultado de uma fusão entre a Benz & Cie. e a Daimler-Motoren-Gesellschaft. É a mais antiga empresa de automóveis e veículos comerciais da Alemanha e do mundo.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="column is-3" @click="alterarCarro(3)">
+                        <div class="card is-clickable">
+                            <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://s2.glbimg.com/0bkoYuV78lL4Z60guocQF_IYZAM=/0x0:1500x967/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/7/X/oLnQBDRDaXpNgAuDpPWg/hr-v-touring-11-.jpg" alt="Placeholder image">
+                            </figure>
+                            </div>
+                            <div class="card-content">                  
+                            <div class="content">
+                                <strong>Honda</strong> Motor Company, Limited é um dos mais importantes fabricantes de automóveis e motocicletas do mundo. Fundada por Soichiro Honda. Teve sua pronúncia "ronda" consolidada - antes "ondá" - após sua expansão e entrada no Mercado Alemão, determinando assim uma marca universal.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="columns is-centered">
+                    <div class="column is-9">
+                        <div class="notification is-primary">
+                        <strong>ATENÇÃO:</strong> essas fabricantes ainda fazem sucesso porem no ano de 2015 foi quando se destacaram.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    
+        </section>
+    </div>
+
+
+    </body>
+</html>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: function() {
+            return{
+                carro: "Peugeot"
+            }
+        },
+        methods:{
+            alterarCarro: function(carroEscolhido) {
+                if(carroEscolhido == 1){
+                    this.carro = "Peugeot"
+                }
+
+                if(carroEscolhido == 2){
+                    this.carro = "Mercedes"
+                }
+
+                if(carroEscolhido == 3){
+                    this.carro = "Honda"
+                }
+
+            }
+        }
+    })
+</script>
+
+<style>
+/* Desativei para cumprir o que o exercicio pediu. */
+/* .is-clickable {
+  cursor: pointer;
+} */
+</style>
