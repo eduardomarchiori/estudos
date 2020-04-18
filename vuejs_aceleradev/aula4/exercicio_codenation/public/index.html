@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <title>Verificador de Palíndromo</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  </head>
+
+  <body>
+
+    <div id="app">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-center" style="height: 700px;">
+          <div class="col-6">
+            <div class="card bg-light shadow rounded">
+              <div class="card-body">
+                <div class="col-12">
+  
+                  <div class="d-flex border border-1 border-bottom-0 input-group-text">
+                    <div class="w-50 d-flex align-items-center justify-content-start p-2">Verificar de Palindromo</div>
+                    <div class="w-50 d-flex justify-content-end p-2">
+                      <button data-test="limpar-dados" class="btn btn-outline-dark border-0 input-group-text" @click="apagarHistorico()">Apagar Historico</button>
+                    </div>
+                  </div>
+  
+                  <div class="border border-1 border-bottom-0 p-2">
+                    <input data-test="entrada" v-model="texto" type="text" class="form-control bg-light" @keypress.enter="capturarEvento()" id="textoDigitado" placeholder="Palindromo">
+                  </div>
+  
+                  <div class="border border-1">
+                    <table class="table table-striped mb-0">
+                      <thead>
+                        <tr>
+                          <th class="w-75">Frase</th>
+                          <th class="w-25">Palindromo</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tabela">
+                        <tr v-for="objeto in listaTextos">
+                          <td>{{objeto.texto}}</td>
+                          <td :data-verificado="adicionarAtributo(objeto.palindromo)">{{objeto.palindromo}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+
+</html>
+
+<script>
+
+  new Vue({
+    el: '#app',
+    data: function(){
+      return {
+        texto: '',
+        listaTextos: []
+      }
+    },
+    methods:{
+      capturarEvento: function(){
+        let self = this;
+        
+        if(self.texto.trim()){
+
+          let objetoTexto = new Object();
+          objetoTexto.texto = self.texto;
+          objetoTexto.palindromo = self.verificarPalindromo();
+          self.listaTextos.push(objetoTexto);
+          
+        }
+        
+        self.texto='';
+
+      },
+      verificarPalindromo: function(){
+        let self = this;
+        let textoSemEspaco = self.texto.replace(/\s/g,'');
+        let textoContrario = textoSemEspaco.split('').reverse().join('');
+        
+        if (textoSemEspaco.trim() == textoContrario) {
+            return 'sim';
+        }
+
+        return 'não';
+
+      },
+      adicionarAtributo: function(ehPalindromo){
+        if(ehPalindromo == 'sim'){
+          return 'positivo';
+        }
+
+        return 'negativo';
+
+      },
+      apagarHistorico: function(){
+        var self = this;
+        self.listaTextos = '';
+      }
+    }
+
+  })
+
+</script>
