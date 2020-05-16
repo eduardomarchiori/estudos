@@ -7,6 +7,9 @@
             <div class="columns has-clickable" @click="onClickPost(post.uuid)">
               <div class="column is-8 is-offset-2">
                 <div class="content is-medium">
+                  <span
+                    class="is-size-7 is-pulled-right is-italic has-text-weight-bold"
+                  >{{ post.userEmail }}</span>
                   <h2 class="subtitle is-4">{{ post.formatedCreatedAt }}</h2>
                   <h1 class="title">{{ post.title }}</h1>
                 </div>

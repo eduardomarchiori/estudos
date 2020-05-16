@@ -12,6 +12,7 @@ export default [
     path: "posts/novo",
     name: "Posts/Novo",
     component: CreatePost,
+    meta: { auth: true }
   },
   {
     path: "posts/:uuid",

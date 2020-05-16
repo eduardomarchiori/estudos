@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
 import AppRoutes from "@/views/routes";
+import {beforeEach} from "./interceptor"
 
 Vue.use(VueRouter);
 
@@ -11,5 +13,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+
+router.beforeEach(beforeEach);
 
 export default router;

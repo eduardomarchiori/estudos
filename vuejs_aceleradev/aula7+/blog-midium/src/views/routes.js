@@ -1,5 +1,6 @@
 import App from "./index.vue";
 import PostRoutes from "@/views/posts/routes";
+import LoginRoutes from "@/views/login/routes";
 
 export default [
   {
@@ -8,4 +9,5 @@ export default [
     component: App,
     children: [...PostRoutes],
   },
+  ...LoginRoutes
 ];
