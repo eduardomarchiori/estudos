@@ -5,7 +5,12 @@
         <span class="navbar-item">CodeBlog</span>
       </div>
       <div class="navbar-end">
-        <router-link :to="{ name: 'Posts' }" class="navbar-item" data-testid="posts">Posts</router-link>
+        <router-link
+          :to="{ name: 'Posts' }"
+          class="navbar-item"
+          data-testid="posts"
+          >Posts</router-link
+        >
 
         <div class="navbar-item">
           <router-link
@@ -13,11 +18,16 @@
             :to="{ name: 'Posts/Novo' }"
             class="button is-light"
             data-testid="create-post"
-          >Criar Post</router-link>
+            >Criar Post</router-link
+          >
         </div>
         <div class="navbar-item">
-          <button @click="logout" v-if="isLogged" class="button is-dark">Logout</button>
-          <router-link v-else :to="{ name: 'Login' }" class="button is-dark">Login</router-link>
+          <button @click="logout" v-if="isLogged" class="button is-dark">
+            Logout
+          </button>
+          <router-link v-else :to="{ name: 'Login' }" class="button is-dark"
+            >Login</router-link
+          >
         </div>
       </div>
     </div>

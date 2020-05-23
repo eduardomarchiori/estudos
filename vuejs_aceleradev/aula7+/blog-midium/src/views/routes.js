@@ -7,7 +7,7 @@ export default [
     path: "/",
     name: "App",
     component: App,
-    children: [...PostRoutes],
+    children: [...PostRoutes]
   },
   ...LoginRoutes
 ];

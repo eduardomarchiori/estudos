@@ -4,7 +4,6 @@
   </div>
 </template>
 
-
 <style lang="scss">
 @import "~bulma";
 @import "~quill/dist/quill.core.css";

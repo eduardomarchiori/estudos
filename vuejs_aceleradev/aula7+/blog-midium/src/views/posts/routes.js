@@ -6,7 +6,7 @@ export default [
   {
     path: "posts",
     name: "Posts",
-    component: Posts,
+    component: Posts
   },
   {
     path: "posts/novo",
@@ -18,6 +18,6 @@ export default [
     path: "posts/:uuid",
     props: true,
     name: "Posts/Read",
-    component: ReadPost,
-  },
+    component: ReadPost
+  }
 ];

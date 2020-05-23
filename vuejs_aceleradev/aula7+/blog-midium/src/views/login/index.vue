@@ -1,4 +1,3 @@
- 
 <template>
   <section class="hero is-fullheight is-dark">
     <div class="hero-body">
@@ -19,7 +18,12 @@
               </div>
             </div>
             <div class="control">
-              <button @click="onClickLogin(user)" class="button is-dark is-fullwidth">Entrar</button>
+              <button
+                @click="onClickLogin(user)"
+                class="button is-dark is-fullwidth"
+              >
+                Entrar
+              </button>
             </div>
           </div>
         </div>
@@ -31,30 +35,32 @@
 <script>
 import { mapActions } from "vuex";
 export default {
-    data(){
-        return{
-            user:{
-                username: "usuario.01@codenation.com",
-                password: "123456"
-            }
-        }
-    },
-    methods:{
-        ...mapActions('login', ['login']),
-        onClickLogin(user){
-            // this.$store.dispatch('login/login', user);
-            this.login(user).then(()=>{
-                this.$router.push({name: "Posts"});
-            }).catch((error)=>{
-                this.user.password = '';
-            })
-        }
+  data() {
+    return {
+      user: {
+        username: "usuario.01@codenation.com",
+        password: "123456"
+      }
+    };
+  },
+  methods: {
+    ...mapActions("login", ["login"]),
+    onClickLogin(user) {
+      // this.$store.dispatch('login/login', user);
+      this.login(user)
+        .then(() => {
+          this.$router.push({ name: "Posts" });
+        })
+        .catch(() => {
+          this.user.password = "";
+        });
     }
-}
+  }
+};
 </script>
 
 <style>
-.is-fullwidth{
-    width: 100%;
+.is-fullwidth {
+  width: 100%;
 }
 </style>

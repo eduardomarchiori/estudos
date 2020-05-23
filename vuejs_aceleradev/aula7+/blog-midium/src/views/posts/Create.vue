@@ -27,13 +27,13 @@ import { quillEditor } from "vue-quill-editor";
 import { createPost } from "./services";
 export default {
   components: {
-    quillEditor,
+    quillEditor
   },
   data() {
     return {
       title: "",
       post: "<h2>Exemplo</h2>",
-      isLoading: false,
+      isLoading: false
     };
   },
   methods: {
@@ -42,8 +42,8 @@ export default {
       createPost({ title, post }).then(() => {
         this.$router.push({ name: "Posts" });
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

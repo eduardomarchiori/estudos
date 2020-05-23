@@ -6,13 +6,13 @@ import router from "./router";
 import store from "./store";
 import VueToast from "vue-toast-notification";
 import axios from "axios";
-import {request} from "@/utils/interceptor";
+import { request } from "@/utils/interceptor";
 
 Vue.use(VueToast);
 
 Vue.config.productionTip = false;
 
-axios.interceptors.request.use(request, (error) => Promise.reject(error));
+axios.interceptors.request.use(request, error => Promise.reject(error));
 
 new Vue({
   router,
